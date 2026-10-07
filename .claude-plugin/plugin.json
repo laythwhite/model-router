@@ -1,0 +1,43 @@
+{
+  "name": "model-router",
+  "version": "0.1.0",
+  "description": "Classifies every prompt and runs it on the cheapest model and effort that can do it well: Haiku, Sonnet, Opus or Fable.",
+  "author": { "name": "Sebastian" },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "mode": {
+      "type": "string",
+      "title": "Routing mode",
+      "description": "auto switches the model per prompt; suggest only shows the route in the status line; off does nothing.",
+      "default": "auto",
+      "options": ["auto", "suggest", "off"]
+    },
+    "tiebreaker": {
+      "type": "string",
+      "title": "Tiebreaker",
+      "description": "When the keyword rules are unsure, ask Haiku for a one-word label (a few hundred tokens), or fall back to Sonnet.",
+      "default": "haiku",
+      "options": ["haiku", "off"]
+    },
+    "designModel": {
+      "type": "string",
+      "title": "Design tier model",
+      "description": "Model for graphic design, layouts, brand assets and storyboards.",
+      "default": "fable",
+      "options": ["fable", "opus", "sonnet"]
+    },
+    "videoModel": {
+      "type": "string",
+      "title": "Video tier model",
+      "description": "Model that writes prompts and drives Higgsfield (Seedance, Genjutsu). Rendering happens on Higgsfield either way.",
+      "default": "opus",
+      "options": ["opus", "fable", "sonnet"]
+    },
+    "cacheGuardTokens": {
+      "type": "number",
+      "title": "Cache guard (tokens)",
+      "description": "Past this context size the router will not drop to a cheaper model mid-conversation, since re-caching costs more than it saves. 0 disables the guard.",
+      "default": 30000
+    }
+  }
+}

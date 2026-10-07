@@ -1,0 +1,6 @@
+{
+  "name": "model-router",
+  "description": "Automatic per-prompt model and effort routing for Claude Code.",
+  "owner": { "name": "Sebastian" },
+  "plugins": [{ "name": "model-router", "source": "./" }]
+}
